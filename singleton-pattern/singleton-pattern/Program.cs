@@ -6,7 +6,9 @@ namespace singleton_pattern
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Singleton s = Singleton.GetInstance;
+            s.congig("data");
         }
     }
 }
