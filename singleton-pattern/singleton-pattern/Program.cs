@@ -7,8 +7,11 @@ namespace singleton_pattern
         static void Main(string[] args)
         {
 
-            Singleton s = Singleton.GetInstance;
-            s.congig("data");
+            Singleton x = Singleton.Instance;
+            x.congig("c");
+            Singleton y = Singleton.Instance;
+            y.congig("d");
+
         }
     }
 }

@@ -8,26 +8,42 @@ namespace singleton_pattern
 {
     public sealed class Singleton
     {
-        private static int c = 0;
-        private static Singleton instance = null;
+        //private static int c = 0;
+        //private static Singleton instance = null;
+        //private Singleton()
+        //{
+        //    c++;
+        //    Console.WriteLine(c);
+        //}
+
+        //public static Singleton GetInstance
+        //{
+        //    get
+        //    {
+        //        if (instance == null)
+        //            instance = new Singleton();
+        //        return instance;
+        //    }
+        //}
+
+
         private Singleton()
         {
-            c++;
-            Console.WriteLine(c);
         }
 
-        public static Singleton GetInstance
+        public static Singleton Instance { get { return Nested.instance; } }
+
+        private class Nested
         {
-            get
+            // Explicit static constructor to tell C# compiler
+            // not to mark type as beforefieldinit
+            static Nested()
             {
-                if (instance == null)
-                    instance = new Singleton();
-                return instance;
             }
-        }
 
-       
-        public void congig(string message)
+            internal static readonly Singleton instance = new Singleton();
+        }
+        public  void congig(string message)
         {
             Console.WriteLine(message);
         }
